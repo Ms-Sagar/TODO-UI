@@ -465,7 +465,6 @@ function App() {
     );
   }, [todos, addToast, handleCrudOperation]);
 
-
   // --- Filtering Logic ---
   const filteredTodos = todos.filter((todo) => {
     if (filter === 'all') return true;
@@ -494,7 +493,6 @@ function App() {
               <Spinner size="1em" color="var(--text-color-secondary)" /> Refreshing...
             </div>
           )}
-          {/* Theme Toggle Button has been removed */}
           <RefreshButton
             onClick={() => fetchTodos(true)}
             disabled={isLoadingTodos || activeCrudOperations.current.size > 0}
@@ -550,7 +548,13 @@ function App() {
             Completed
           </button>
         </div>
-        <button className="add-todo-btn" onClick={() => setIsModalOpen(true)} disabled={isAddingTodo} aria-label="Add new todo">
+        <button
+          className="add-todo-btn"
+          onClick={() => setIsModalOpen(true)}
+          disabled={isAddingTodo}
+          aria-label="Add new todo"
+          style={{ backgroundColor: 'purple' }} // Changed background color to purple
+        >
           <span aria-hidden="true">+</span> Add New Todo
         </button>
       </section>
