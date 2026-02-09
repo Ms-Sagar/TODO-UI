@@ -1,4 +1,4 @@
-/* --- CSS Variables (Light Theme as default) --- */
+/* --- CSS Variables for Light Theme --- */
 :root {
   /* General Backgrounds */
   --bg-app: #f8f9fa;
@@ -98,115 +98,10 @@
   --status-completed-color: var(--color-success-accent);
   --status-in-progress-color: var(--color-warning-accent);
 
-  /* Add New Todo Button Specific Purple Colors */
-  --color-add-todo-btn-start: #8e2de2; /* Updated to purple */
-  --color-add-todo-btn-end: #4a00e0; /* Slightly darker purple for gradient end */
-  --shadow-add-todo-btn-hover: 0 4px 12px rgba(142, 45, 226, 0.3); /* Purple-based shadow */
-}
-
-/* --- Dark Theme Overrides --- */
-:root[data-theme="dark"] {
-  /* General Backgrounds */
-  --bg-app: #1a1e23;
-  --bg-card: #282c34;
-  --bg-header: linear-gradient(135deg, #4c2d73 0%, #3a1d5c 100%);
-  --bg-modal-overlay: rgba(0, 0, 0, 0.7);
-  --bg-modal-footer: #282c34;
-  --bg-light-hover: rgba(255, 255, 255, 0.1);
-  --bg-polling-status: rgba(255, 255, 255, 0.15);
-
-  /* Text Colors */
-  --text-primary: #e0e6ed;
-  --text-secondary: #a0a8b3;
-  --text-muted: #7f8a97;
-  --text-light: white;
-  --text-link: #539bf5;
-  --text-header-p: rgba(255, 255, 255, 0.8);
-  --text-polling-status: #a0a8b3;
-  
-  /* Border Colors */
-  --border-base: #3f444c;
-  --border-input: #3f444c;
-  --border-dashed: #3f444c;
-  --border-header-btn: rgba(255, 255, 255, 0.2);
-  --border-spinner-base: rgba(255, 255, 255, 0.2);
-  --border-spinner-top: var(--color-primary-accent);
-
-  /* Accent & Action Colors */
-  --color-primary-accent: #539bf5;
-  --color-success-accent: #2ea043;
-  --color-warning-accent: #f3cb49;
-  --color-danger-accent: #f85149;
-  --color-info-accent: #39c5bb;
-  --color-secondary-accent: #6c757d;
-  --color-purple-accent: #a78bfa; /* Lighter purple for dark mode delete button */
-  --color-purple-hover: #8b5cf6; /* Darker lighter purple for hover */
-  --color-primary-gradient-start: #2ea043;
-  --color-primary-gradient-end: #20c997;
-
-  /* Component Specific */
-  --filter-btn-bg: #282c34;
-  --filter-btn-text: var(--text-secondary);
-  --filter-btn-border: var(--border-input);
-  --filter-btn-hover-text: var(--color-primary-accent);
-  --filter-btn-hover-border: var(--color-primary-accent);
-  --filter-btn-active-bg: var(--color-primary-accent);
-  --filter-btn-active-text: var(--text-light);
-  --filter-btn-active-border: var(--color-primary-accent);
-
-  --refresh-btn-bg: rgba(255, 255, 255, 0.1);
-  --refresh-btn-hover-bg: rgba(255, 255, 255, 0.2);
-
-  --file-tag-bg: #3f444c;
-  --file-tag-text: var(--text-secondary);
-  --dependency-tag-bg: #2c464c;
-  --dependency-tag-text: #79d2dc;
-
-  --error-banner-bg: #49262c;
-  --error-banner-text: #f85149;
-  --error-banner-border: #6b212f;
-  --error-banner-btn-bg: #f85149;
-  --error-banner-btn-hover-bg: #cf222e;
-
-  --loading-h3: var(--color-primary-accent);
-  --loading-border: var(--color-primary-accent);
-
-  --admin-link-bg: var(--color-primary-accent);
-  --admin-link-hover-bg: #388bfd;
-
-  --toast-bg: #282c34;
-  --toast-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  --toast-message-text: var(--text-primary);
-  --toast-close-btn-color: var(--text-secondary);
-  --toast-close-btn-hover-color: var(--text-primary);
-
-  --modal-header-text: var(--text-primary);
-  --form-label-text: var(--text-primary);
-  --form-input-text: var(--text-primary);
-  --form-input-focus-border: var(--color-primary-accent);
-
-  --cancel-btn-bg: var(--color-secondary-accent);
-  --cancel-btn-hover-bg: #545b62;
-  --add-btn-bg: var(--color-success-accent); 
-  --add-btn-hover-bg: #268a33;
-
-  --delete-btn-bg: var(--color-purple-accent);
-  --delete-btn-hover-bg: var(--color-purple-hover);
-
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.3); /* Softer shadow for dark mode */
-  --shadow-card-hover: 0 4px 16px rgba(0,0,0,0.4);
-  --shadow-modal: 0 10px 30px rgba(0,0,0,0.6);
-  --shadow-btn-hover-success: 0 4px 12px rgba(46, 160, 67, 0.3);
-  --shadow-btn-hover-primary: 0 4px 10px rgba(83, 155, 245, 0.2);
-
-  --status-pending-color: var(--color-secondary-accent);
-  --status-completed-color: var(--color-success-accent);
-  --status-in-progress-color: var(--color-warning-accent);
-
-  /* Add New Todo Button Specific Purple Colors (retained in dark theme) */
-  --color-add-todo-btn-start: #8e2de2;
-  --color-add-todo-btn-end: #4a00e0;
-  --shadow-add-todo-btn-hover: 0 4px 12px rgba(142, 45, 226, 0.4); /* Slightly darker shadow for dark mode */
+  /* Add New Todo Button Specific Yellow Colors */
+  --color-add-todo-btn-start: var(--color-warning-accent); /* Updated to yellow */
+  --color-add-todo-btn-end: #e0a800; /* Slightly darker yellow for gradient end */
+  --shadow-add-todo-btn-hover: 0 4px 12px rgba(255, 193, 7, 0.3); /* Yellow-based shadow */
 }
 
 /* Apply theme background and default text color to body */
@@ -216,7 +111,6 @@ body {
   min-height: 100vh;
   background-color: var(--bg-app);
   color: var(--text-primary); /* Default text color for the app */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
 }
 
 .app {
@@ -238,7 +132,6 @@ body {
   border-radius: 12px;
   flex-wrap: wrap;
   gap: 20px;
-  transition: background 0.3s ease, color 0.3s ease; /* Smooth theme transition */
 }
 
 .header-content {
@@ -289,6 +182,8 @@ body {
   transform: none; /* Disable transform when disabled */
 }
 
+/* Theme toggle button styles removed */
+
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -303,7 +198,6 @@ body {
   text-align: center;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--border-base);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth theme transition */
 }
 
 .stat-card h3 {
@@ -358,7 +252,6 @@ body {
   background: var(--bg-card);
   border-radius: 12px;
   border: 2px dashed var(--border-dashed);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth theme transition */
 }
 
 .no-todos h3 {
@@ -379,7 +272,7 @@ body {
   border: 1px solid var(--border-base);
   /* Add a left border for visual emphasis of status */
   border-left: 5px solid var(--border-base); 
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Smooth theme transition */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .todo-card:hover {
@@ -452,7 +345,6 @@ body {
   border-radius: 6px;
   font-size: 0.8rem;
   font-family: 'Monaco', 'Menlo', monospace;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
 }
 
 .dependency-tag {
@@ -469,7 +361,6 @@ body {
   border-top: 1px solid var(--border-base);
   flex-wrap: wrap;
   gap: 10px;
-  transition: border-color 0.3s ease; /* Smooth theme transition */
 }
 
 .todo-footer small {
@@ -484,7 +375,6 @@ body {
   background: var(--bg-card);
   border-radius: 12px;
   border: 1px solid var(--border-base);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth theme transition */
 }
 
 .footer p {
@@ -539,7 +429,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth theme transition */
 }
 
 .error-banner button {
@@ -562,7 +451,6 @@ body {
   background: var(--bg-card);
   border-radius: 12px;
   border: 2px dashed var(--loading-border);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth theme transition */
 }
 
 .loading h3 {
@@ -616,7 +504,6 @@ body {
   margin-bottom: 20px; /* Standardize spacing before border */
   padding-bottom: 15px;
   border-bottom: 1px solid var(--border-base);
-  transition: border-color 0.3s ease; /* Smooth theme transition */
 }
 
 .generate-files-btn {
@@ -673,7 +560,6 @@ body {
   border-radius: 50%;
   border-top: 2px solid var(--border-spinner-top);
   animation: spin 1s linear infinite;
-  transition: border-color 0.3s ease; /* Smooth theme transition */
 }
 
 @keyframes spin {
@@ -699,7 +585,6 @@ body {
   border-radius: 6px;
   font-size: 0.9rem;
   color: var(--text-polling-status);
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
 }
 
 /* Toast Notifications */
@@ -724,7 +609,6 @@ body {
   align-items: center;
   min-width: 300px;
   animation: slideIn 0.3s ease-out;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth theme transition */
 }
 
 .toast.success {
@@ -749,7 +633,6 @@ body {
   color: var(--toast-close-btn-color);
   padding: 0;
   margin-left: 15px;
-  transition: color 0.3s ease; /* Smooth theme transition */
 }
 
 .toast-close-btn:hover {
@@ -824,7 +707,6 @@ body {
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth theme transition */
 }
 
 .modal-header {
@@ -833,7 +715,6 @@ body {
   align-items: center;
   padding: 20px 25px;
   border-bottom: 1px solid var(--border-base);
-  transition: border-color 0.3s ease; /* Smooth theme transition */
 }
 
 .modal-header h3 {
@@ -885,7 +766,7 @@ body {
   border: 2px solid var(--border-input);
   border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+  transition: border-color 0.3s ease;
   box-sizing: border-box;
   background-color: var(--bg-card); /* Ensure input background also changes */
   color: var(--form-input-text);
@@ -906,7 +787,6 @@ body {
   border-top: 1px solid var(--border-base);
   background: var(--bg-modal-footer);
   border-radius: 0 0 12px 12px;
-  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth theme transition */
 }
 
 .cancel-btn, .add-btn {
@@ -960,7 +840,6 @@ body {
   font-size: 0.9rem;
   background-color: var(--bg-card); /* Ensure select background also changes */
   color: var(--form-input-text);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth theme transition */
 }
 
 /* Updated delete-btn for icon */
@@ -1014,7 +893,23 @@ body {
     width: 100%;
   }
   
+  /* .todo-actions flex-wrap handles this automatically but can be refined if needed */
+  /* .todo-actions {
+    flex-direction: column;
+    align-items: stretch;
+  } */
+  
   .status-controls {
     justify-content: space-between;
+  }
+  
+  /* .delete-btn also handles wrapping due to flex-wrap on parent */
+  /* .delete-btn {
+    width: 100%;
+  } */
+  
+  .header {
+    flex-direction: column;
+    text-align: center;
   }
 }

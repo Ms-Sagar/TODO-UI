@@ -2,8 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // For generating temporary IDs
 import './App.css'; // Import the CSS styles
 import RefreshButton from './components/RefreshButton'; // NEW: Import the RefreshButton component
-import ThemeToggle from './components/ThemeToggle'; // NEW: Import ThemeToggle component for dark mode
-import { useTheme } from './hooks/useTheme'; // NEW: Import useTheme hook
 
 // --- Types ---
 type Filter = 'all' | 'completed' | 'active';
@@ -263,9 +261,6 @@ function App() {
   const [globalError, setGlobalError] = useState<string | null>(null); // For persistent errors
   const [toasts, setToasts] = useState<Toast[]>([]); // For transient success/error messages
 
-  // NEW: Get theme context
-  const { theme } = useTheme();
-
   // Tracks active optimistic CRUD operations to pause polling
   const activeCrudOperations = useRef(new Set<string>());
 
@@ -485,7 +480,7 @@ function App() {
   const totalTodosCount = todos.length;
 
   return (
-    <div className="app"> {/* Removed dynamic theme class, theme is now applied via data-theme on document.documentElement */}
+    <div className="app"> {/* Removed dynamic theme class */}
       <ToastContainer toasts={toasts} removeToast={removeToast} />
 
       <header className="header">
@@ -499,8 +494,6 @@ function App() {
               <Spinner size="1em" color="var(--text-color-secondary)" /> Refreshing...
             </div>
           )}
-          {/* NEW: Theme toggle button */}
-          <ThemeToggle /> 
           <RefreshButton
             onClick={() => fetchTodos(true)}
             isLoading={isLoadingTodos || activeCrudOperations.current.size > 0}
@@ -559,8 +552,7 @@ function App() {
           onClick={() => setIsModalOpen(true)}
           disabled={isAddingTodo}
           aria-label="Add new todo"
-          // Changed background color to purple and text to white using CSS variables
-          style={{ backgroundColor: 'var(--button-accent-bg)', color: 'var(--button-accent-text)' }}
+          style={{ backgroundColor: 'yellow' }} // Changed background color to yellow as per request
         >
           <span aria-hidden="true">+</span> Add New Todo
         </button>

@@ -1,10 +1,11 @@
-import React, { createContext, useEffect, useState, useCallback, useMemo, ReactNode } from 'react';
+import React, { createContext, useEffect, ReactNode } from 'react';
 
-export type Theme = 'light' | 'dark';
+// The Theme type is now fixed to 'light' as dark mode is removed.
+export type Theme = 'light';
 
+// The ThemeContextType now only includes the 'theme' as there is no toggle functionality.
 export interface ThemeContextType {
   theme: Theme;
-  toggleTheme: () => void;
 }
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -14,46 +15,29 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Attempt to read theme from localStorage for persistence
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'light' || storedTheme === 'dark') {
-      return storedTheme;
-    }
+  // The theme is now always 'light'.
+  // We no longer need useState to manage theme state or read from localStorage on initial render
+  // for selection logic, as it's a fixed value.
+  const theme: Theme = 'light';
 
-    // If no theme is stored, check the user's system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-
-    // Default to light theme if no preference is found
-    return 'light';
-  });
-
-  // Function to toggle between light and dark themes
-  const toggleTheme = useCallback(() => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  }, []); // useCallback ensures this function's reference is stable
-
-  // Effect to apply the theme to the document and persist it in localStorage
   useEffect(() => {
-    // Apply the current theme to the document's root element as a data attribute
-    // This allows CSS to apply different styles based on [data-theme="light"] or [data-theme="dark"]
-    document.documentElement.setAttribute('data-theme', theme);
+    const body = document.body;
+    // Ensure the 'dark-theme' class is always removed, enforcing light mode styles.
+    body.classList.remove('dark-theme');
+    // Set the document's color-scheme property to 'light'.
+    document.documentElement.style.setProperty('color-scheme', 'light');
 
-    // Set the document's color-scheme property for browser-level UI elements (like scrollbars)
-    document.documentElement.style.setProperty('color-scheme', theme);
+    // Persist the 'light' theme to localStorage.
+    // This ensures any previously stored 'dark' theme is overwritten and
+    // future loads consistently apply 'light' mode.
+    localStorage.setItem('theme', 'light');
+  }, []); // The effect runs once on mount to set the fixed 'light' theme properties.
 
-    // Persist the current theme to localStorage so it remembers user's choice
-    localStorage.setItem('theme', theme);
-  }, [theme]); // Re-run this effect whenever the theme state changes
-
-  // Memoize the context value to prevent unnecessary re-renders of consuming components
-  // unless 'theme' or 'toggleTheme' (which is stable) actually changes.
-  const contextValue = useMemo(() => ({
+  // The context value now only provides the fixed 'light' theme.
+  // The toggleTheme function has been removed as there is no dark mode to toggle to.
+  const contextValue = {
     theme,
-    toggleTheme,
-  }), [theme, toggleTheme]);
+  };
 
   return (
     <ThemeContext.Provider value={contextValue}>
