@@ -2,8 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // For generating temporary IDs
 import './App.css'; // Import the CSS styles
 import RefreshButton from './components/RefreshButton'; // NEW: Import the RefreshButton component
-import ThemeToggle from './components/ThemeToggle'; // NEW: Import the ThemeToggle component
-import { useTheme } from './hooks/useTheme'; // NEW: Import the useTheme hook
 
 // --- Types ---
 type Filter = 'all' | 'completed' | 'active';
@@ -251,8 +249,6 @@ const TodoCard: React.FC<TodoCardProps> = ({ todo, isBusy, toggleTodoStatus, del
 
 // --- Main App Component ---
 function App() {
-  const { theme } = useTheme(); // NEW: Get the current theme from the context
-
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<Filter>('all');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -484,7 +480,7 @@ function App() {
   const totalTodosCount = todos.length;
 
   return (
-    <div className="app" data-theme={theme}> {/* NEW: Apply data-theme attribute */}
+    <div className="app"> {/* Removed dynamic theme class */}
       <ToastContainer toasts={toasts} removeToast={removeToast} />
 
       <header className="header">
@@ -502,7 +498,6 @@ function App() {
             onClick={() => fetchTodos(true)}
             isLoading={isLoadingTodos || activeCrudOperations.current.size > 0}
           />
-          <ThemeToggle /> {/* NEW: Add the ThemeToggle component */}
         </div>
       </header>
 
@@ -557,7 +552,7 @@ function App() {
           onClick={() => setIsModalOpen(true)}
           disabled={isAddingTodo}
           aria-label="Add new todo"
-          style={{ backgroundColor: 'purple', color: 'white' }} // Changed background color to purple as per request
+          style={{ backgroundColor: 'yellow' }} // Changed background color to yellow as per request
         >
           <span aria-hidden="true">+</span> Add New Todo
         </button>

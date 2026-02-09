@@ -1,27 +1,9 @@
 import React from 'react';
-import { useTheme } from '../hooks/useTheme';
 
+// With dark mode removed, there is no longer a need for a theme toggle.
+// This component is effectively decommissioned and will render nothing.
 const ThemeToggle: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
-
-  return (
-    <button
-      onClick={toggleTheme}
-      className="theme-toggle"
-      aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-      title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-    >
-      {theme === 'light' ? (
-        <>
-          <span role="img" aria-label="sun icon">☀️</span> Light
-        </>
-      ) : (
-        <>
-          <span role="img" aria-label="moon icon">🌙</span> Dark
-        </>
-      )}
-    </button>
-  );
+  return null;
 };
 
 export default ThemeToggle;
