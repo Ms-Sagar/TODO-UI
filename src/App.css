@@ -96,10 +96,113 @@
   --status-completed-color: var(--color-success-accent);
   --status-in-progress-color: var(--color-warning-accent);
 
-  /* Add New Todo Button Specific Red Colors */
-  --color-add-todo-btn-start: var(--color-danger-accent); /* Changed to red */
-  --color-add-todo-btn-end: #b02a37; /* Slightly darker red for gradient end */
-  --shadow-add-todo-btn-hover: 0 4px 12px rgba(220, 53, 69, 0.3); /* Red-based shadow */
+  /* Add New Todo Button Specific Purple Colors */
+  --color-add-todo-btn-start: #9333ea; /* Purple */
+  --color-add-todo-btn-end: #6b21a8; /* Darker Purple */
+  --shadow-add-todo-btn-hover: 0 4px 12px rgba(147, 51, 234, 0.4); /* Purple-based shadow */
+}
+
+/* --- CSS Variables for Dark Theme --- */
+[data-theme="dark"] {
+  /* General Backgrounds */
+  --bg-app: #1a1a1a;
+  --bg-card: #242424;
+  --bg-header: linear-gradient(135deg, #301934 0%, #4a215a 100%); /* Darker purple gradient for header */
+  --bg-modal-overlay: rgba(0, 0, 0, 0.75);
+  --bg-modal-footer: #242424;
+  --bg-light-hover: #333333;
+  --bg-polling-status: rgba(255, 255, 255, 0.1);
+
+  /* Text Colors */
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-muted: #888888;
+  --text-light: white;
+  --text-link: #90cdf4; /* Lighter blue for dark mode */
+  --text-header-p: rgba(255, 255, 255, 0.7);
+  --text-polling-status: #e0e0e0;
+  
+  /* Border Colors */
+  --border-base: #333333;
+  --border-input: #444444;
+  --border-dashed: #555555;
+  --border-header-btn: rgba(255, 255, 255, 0.2);
+  --border-spinner-base: rgba(255, 255, 255, 0.2);
+  --border-spinner-top: var(--color-primary-accent);
+
+  /* Accent & Action Colors */
+  --color-primary-accent: #63b3ed; /* Lighter blue */
+  --color-success-accent: #82e082; /* Lighter green */
+  --color-warning-accent: #fbd38d; /* Lighter yellow */
+  --color-danger-accent: #fc8181; /* Lighter red */
+  --color-info-accent: #81e6d9; /* Lighter teal */
+  --color-secondary-accent: #a0aec0; /* Lighter grey */
+  --color-primary-gradient-start: #38a169; /* Darker green for contrast */
+  --color-primary-gradient-end: #48bb78; /* Darker green */
+
+  /* Component Specific */
+  --filter-btn-bg: #333333;
+  --filter-btn-text: #e0e0e0;
+  --filter-btn-border: #444444;
+  --filter-btn-hover-text: var(--color-primary-accent);
+  --filter-btn-hover-border: var(--color-primary-accent);
+  --filter-btn-active-bg: var(--color-primary-accent);
+  --filter-btn-active-text: #1a1a1a; /* Dark text for contrast on accent */
+  --filter-btn-active-border: var(--color-primary-accent);
+
+  --refresh-btn-bg: rgba(255, 255, 255, 0.1);
+  --refresh-btn-hover-bg: rgba(255, 255, 255, 0.15);
+
+  --file-tag-bg: #3a3a3a;
+  --file-tag-text: #e0e0e0;
+  --dependency-tag-bg: #2c3e50;
+  --dependency-tag-text: #81e6d9;
+
+  --error-banner-bg: #4a1c1f;
+  --error-banner-text: #fca5a5;
+  --error-banner-border: #7f1d1d;
+  --error-banner-btn-bg: #c53030;
+  --error-banner-btn-hover-bg: #9b2c2c;
+
+  --loading-h3: var(--color-primary-accent);
+  --loading-border: var(--color-primary-accent);
+
+  --admin-link-bg: var(--color-primary-accent);
+  --admin-link-hover-bg: #3182ce;
+
+  --toast-bg: #333333;
+  --toast-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --toast-message-text: #e0e0e0;
+  --toast-close-btn-color: #b0b0b0;
+  --toast-close-btn-hover-color: #e0e0e0;
+
+  --modal-header-text: #e0e0e0;
+  --form-label-text: #e0e0e0;
+  --form-input-text: #e0e0e0;
+  --form-input-focus-border: var(--color-primary-accent);
+
+  --cancel-btn-bg: var(--color-secondary-accent);
+  --cancel-btn-hover-bg: #718096;
+  --add-btn-bg: var(--color-success-accent); 
+  --add-btn-hover-bg: #68d391;
+
+  --delete-btn-bg: var(--color-danger-accent);
+  --delete-btn-hover-bg: #e53e3e;
+
+  --shadow-card: 0 2px 10px rgba(0,0,0,0.3);
+  --shadow-card-hover: 0 4px 20px rgba(0,0,0,0.4);
+  --shadow-modal: 0 10px 30px rgba(0,0,0,0.6);
+  --shadow-btn-hover-success: 0 4px 12px rgba(129, 230, 217, 0.3); /* Lighter green for dark mode */
+  --shadow-btn-hover-primary: 0 4px 10px rgba(99, 179, 237, 0.2); /* Lighter blue for dark mode */
+
+  --status-pending-color: var(--color-secondary-accent);
+  --status-completed-color: var(--color-success-accent);
+  --status-in-progress-color: var(--color-warning-accent);
+
+  /* Add New Todo Button Specific Purple Colors */
+  --color-add-todo-btn-start: #9333ea; /* Purple */
+  --color-add-todo-btn-end: #6b21a8; /* Darker Purple */
+  --shadow-add-todo-btn-hover: 0 4px 12px rgba(147, 51, 234, 0.4); /* Purple-based shadow */
 }
 
 /* Apply theme background and default text color to body */

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // For generating temporary IDs
 import './App.css'; // Import the CSS styles
 import RefreshButton from './components/RefreshButton'; // NEW: Import the RefreshButton component
+import ThemeToggle from './components/ThemeToggle'; // NEW: Import ThemeToggle component
+import { useTheme } from './hooks/useTheme'; // NEW: Import useTheme hook
 
 // --- Types ---
 type Filter = 'all' | 'completed' | 'active';
@@ -248,6 +250,9 @@ const TodoCard: React.FC<TodoCardProps> = ({ todo, isBusy, toggleTodoStatus, del
 
 // --- Main App Component ---
 function App() {
+  // NEW: Use the theme hook to get the current theme (either 'light' or 'dark')
+  const { theme } = useTheme();
+
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<Filter>('all');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -479,7 +484,8 @@ function App() {
   const totalTodosCount = todos.length;
 
   return (
-    <div className="app"> {/* Removed dynamic theme class */}
+    // NEW: Apply data-theme attribute based on the theme context
+    <div className="app" data-theme={theme}>
       <ToastContainer toasts={toasts} removeToast={removeToast} />
 
       <header className="header">
@@ -497,6 +503,8 @@ function App() {
             onClick={() => fetchTodos(true)}
             isLoading={isLoadingTodos || activeCrudOperations.current.size > 0}
           />
+          {/* NEW: Add ThemeToggle component to switch between light and dark mode */}
+          <ThemeToggle />
         </div>
       </header>
 
@@ -551,7 +559,8 @@ function App() {
           onClick={() => setIsModalOpen(true)}
           disabled={isAddingTodo}
           aria-label="Add new todo"
-          style={{ backgroundColor: 'red' }} // Changed background color to red as per request
+          // IMPORTANT: Changed background color to purple as per user request
+          style={{ backgroundColor: 'purple' }}
         >
           <span aria-hidden="true">+</span> Add New Todo
         </button>
