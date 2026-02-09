@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // For generating temporary IDs
 import './App.css'; // Import the CSS styles
 import RefreshButton from './components/RefreshButton'; // NEW: Import the RefreshButton component
+import ThemeToggle from './components/ThemeToggle'; // NEW: Import the ThemeToggle component
+import { useTheme } from './hooks/useTheme'; // NEW: Import useTheme hook
 
 // --- Types ---
 type Filter = 'all' | 'completed' | 'active';
@@ -172,20 +174,20 @@ const TodoCard: React.FC<TodoCardProps> = ({ todo, isBusy, toggleTodoStatus, del
   // Modified to return CSS variable names instead of hardcoded hex codes
   const getPriorityColorVar = (priority: Priority) => {
     switch (priority) {
-      case 'high': return 'var(--priority-high-bg)';
-      case 'medium': return 'var(--priority-medium-bg)';
-      case 'low': return 'var(--priority-low-bg)';
-      default: return 'var(--priority-medium-bg)'; // Fallback to medium
+      case 'high': return 'var(--priority-high-bg, #dc3545)';
+      case 'medium': return 'var(--priority-medium-bg, #007bff)';
+      case 'low': return 'var(--priority-low-bg, #6c757d)';
+      default: return 'var(--priority-medium-bg, #007bff)'; // Fallback to medium
     }
   };
 
   // Modified to return CSS variable names instead of hardcoded hex codes
   const getStatusColorVar = (status: Status) => {
     switch (status) {
-      case 'completed': return 'var(--status-completed-bg)';
-      case 'in-progress': return 'var(--status-in-progress-bg)';
-      case 'pending': return 'var(--status-pending-bg)';
-      default: return 'var(--status-pending-bg)'; // Fallback to pending
+      case 'completed': return 'var(--status-completed-bg, #28a745)';
+      case 'in-progress': return 'var(--status-in-progress-bg, #ffc107)';
+      case 'pending': return 'var(--status-pending-bg, #17a2b8)';
+      default: return 'var(--status-pending-bg, #17a2b8)'; // Fallback to pending
     }
   };
 
@@ -260,6 +262,8 @@ function App() {
   const [isAddingTodo, setIsAddingTodo] = useState(false); // For add todo modal submit
   const [globalError, setGlobalError] = useState<string | null>(null); // For persistent errors
   const [toasts, setToasts] = useState<Toast[]>([]); // For transient success/error messages
+
+  const { theme } = useTheme(); // Use the theme hook to get current theme
 
   // Tracks active optimistic CRUD operations to pause polling
   const activeCrudOperations = useRef(new Set<string>());
@@ -480,7 +484,7 @@ function App() {
   const totalTodosCount = todos.length;
 
   return (
-    <div className="app"> {/* Removed dynamic theme class */}
+    <div className="app">
       <ToastContainer toasts={toasts} removeToast={removeToast} />
 
       <header className="header">
@@ -498,6 +502,7 @@ function App() {
             onClick={() => fetchTodos(true)}
             isLoading={isLoadingTodos || activeCrudOperations.current.size > 0}
           />
+          <ThemeToggle /> {/* NEW: Theme toggle component */}
         </div>
       </header>
 
@@ -552,7 +557,7 @@ function App() {
           onClick={() => setIsModalOpen(true)}
           disabled={isAddingTodo}
           aria-label="Add new todo"
-          style={{ backgroundColor: 'yellow' }} // Changed background color to yellow as per request
+          style={{ backgroundColor: 'purple', color: 'white' }} // Changed background color to purple as per request
         >
           <span aria-hidden="true">+</span> Add New Todo
         </button>
