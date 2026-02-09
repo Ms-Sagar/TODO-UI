@@ -33,8 +33,8 @@
   --color-danger-accent: #dc3545; /* Red */
   --color-info-accent: #0c5460; /* Teal/Blue-green */
   --color-secondary-accent: #6c757d; /* Grey */
-  --color-purple-accent: #6f42c1; /* NEW: Purple accent color for delete button */
-  --color-purple-hover: #5f37a5; /* NEW: Darker purple for delete button hover */
+  --color-purple-accent: #6f42c1; /* Purple accent color */
+  --color-purple-hover: #5f37a5; /* Darker purple for hover */
   --color-primary-gradient-start: #28a745; /* Green gradient start - used by generate-files-btn */
   --color-primary-gradient-end: #20c997; /* Green gradient end - used by generate-files-btn */
 
@@ -98,10 +98,115 @@
   --status-completed-color: var(--color-success-accent);
   --status-in-progress-color: var(--color-warning-accent);
 
-  /* Add New Todo Button Specific Yellow Colors */
-  --color-add-todo-btn-start: var(--color-warning-accent); /* Updated to yellow */
-  --color-add-todo-btn-end: #e0a800; /* Slightly darker yellow for gradient end */
-  --shadow-add-todo-btn-hover: 0 4px 12px rgba(255, 193, 7, 0.3); /* Yellow-based shadow */
+  /* Add New Todo Button Specific Purple Colors (formerly yellow) */
+  --color-add-todo-btn-start: var(--color-purple-accent); /* Changed to purple */
+  --color-add-todo-btn-end: var(--color-purple-hover); /* Changed to darker purple for gradient end */
+  --shadow-add-todo-btn-hover: 0 4px 12px rgba(111, 66, 193, 0.3); /* Purple-based shadow based on --color-purple-accent */
+}
+
+/* --- CSS Variables for Dark Theme --- */
+[data-theme="dark"] {
+  /* General Backgrounds */
+  --bg-app: #121212;
+  --bg-card: #1e1e1e;
+  --bg-header: linear-gradient(135deg, #2b004a 0%, #00002b 100%); /* Darker, deep purple gradient */
+  --bg-modal-overlay: rgba(0, 0, 0, 0.7);
+  --bg-modal-footer: #252525;
+  --bg-light-hover: #2a2a2a; /* Used for close-btn hover in dark mode */
+  --bg-polling-status: rgba(255, 255, 255, 0.1); /* Background for polling status in header */
+
+  /* Text Colors */
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #707070;
+  --text-light: white;
+  --text-link: #94b8ff; /* Lighter blue for links */
+  --text-header-p: rgba(255, 255, 255, 0.8);
+  --text-polling-status: rgba(255, 255, 255, 0.8);
+  
+  /* Border Colors */
+  --border-base: #333333;
+  --border-input: #444444;
+  --border-dashed: #555555;
+  --border-header-btn: rgba(255, 255, 255, 0.2);
+  --border-spinner-base: rgba(255, 255, 255, 0.2);
+  --border-spinner-top: var(--color-primary-accent);
+
+  /* Accent & Action Colors - adjusted for visibility on dark backgrounds */
+  --color-primary-accent: #5d9cec; /* Slightly lighter blue for dark theme */
+  --color-success-accent: #4ade80; /* Lighter green for dark theme */
+  --color-warning-accent: #ffd700; /* Bright yellow for dark theme */
+  --color-danger-accent: #ef5350; /* Lighter red for dark theme */
+  --color-info-accent: #26c6da; /* Lighter teal for dark theme */
+  --color-secondary-accent: #8e8e8e; /* Lighter grey for dark theme */
+  --color-purple-accent: #bb86fc; /* Lighter purple for dark theme */
+  --color-purple-hover: #9c27b0; /* Darker purple for dark theme hover */
+  --color-primary-gradient-start: #4ade80; /* Lighter green gradient start */
+  --color-primary-gradient-end: #36d6a5; /* Lighter green gradient end */
+
+  /* Component Specific */
+  --filter-btn-bg: #2a2a2a;
+  --filter-btn-text: var(--text-primary);
+  --filter-btn-border: var(--border-input);
+  --filter-btn-hover-text: var(--color-primary-accent);
+  --filter-btn-hover-border: var(--color-primary-accent);
+  --filter-btn-active-bg: var(--color-primary-accent);
+  --filter-btn-active-text: var(--text-light);
+  --filter-btn-active-border: var(--color-primary-accent);
+
+  --refresh-btn-bg: rgba(255, 255, 255, 0.1);
+  --refresh-btn-hover-bg: rgba(255, 255, 255, 0.2);
+
+  --file-tag-bg: #333333;
+  --file-tag-text: var(--text-primary);
+  --dependency-tag-bg: #1a474c; /* Darker teal for dark mode */
+  --dependency-tag-text: #9fe2ec; /* Lighter teal for dark mode */
+
+  --error-banner-bg: #401f1f;
+  --error-banner-text: #ff9999;
+  --error-banner-border: #602d2d;
+  --error-banner-btn-bg: #a02b38;
+  --error-banner-btn-hover-bg: #8b2430;
+
+  --loading-h3: var(--color-primary-accent);
+  --loading-border: var(--color-primary-accent);
+
+  --admin-link-bg: var(--color-primary-accent);
+  --admin-link-hover-bg: #0056b3;
+
+  --toast-bg: #333333;
+  --toast-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --toast-message-text: var(--text-primary);
+  --toast-close-btn-color: var(--text-secondary);
+  --toast-close-btn-hover-color: var(--text-primary);
+
+  --modal-header-text: var(--text-primary);
+  --form-label-text: var(--text-primary);
+  --form-input-text: var(--text-primary);
+  --form-input-focus-border: var(--color-primary-accent);
+
+  --cancel-btn-bg: var(--color-secondary-accent);
+  --cancel-btn-hover-bg: #757575; /* Lighter grey for hover in dark mode */
+  --add-btn-bg: var(--color-success-accent); 
+  --add-btn-hover-bg: #218838;
+
+  --delete-btn-bg: var(--color-purple-accent);
+  --delete-btn-hover-bg: var(--color-purple-hover);
+
+  --shadow-card: 0 2px 10px rgba(0,0,0,0.3);
+  --shadow-card-hover: 0 4px 20px rgba(0,0,0,0.5);
+  --shadow-modal: 0 10px 30px rgba(0,0,0,0.6);
+  --shadow-btn-hover-success: 0 4px 12px rgba(74, 222, 128, 0.3); /* Based on lighter green for dark theme */
+  --shadow-btn-hover-primary: 0 4px 10px rgba(93, 156, 236, 0.3); /* Based on lighter blue for dark theme */
+
+  --status-pending-color: var(--color-secondary-accent);
+  --status-completed-color: var(--color-success-accent);
+  --status-in-progress-color: var(--color-warning-accent);
+
+  /* Add New Todo Button Specific Purple Colors (previously yellow) */
+  --color-add-todo-btn-start: var(--color-purple-accent);
+  --color-add-todo-btn-end: var(--color-purple-hover);
+  --shadow-add-todo-btn-hover: 0 4px 12px rgba(187, 134, 252, 0.3); /* Purple-based shadow, using dark mode purple */
 }
 
 /* Apply theme background and default text color to body */
