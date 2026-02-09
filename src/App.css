@@ -91,15 +91,17 @@
   --shadow-modal: 0 10px 30px rgba(0,0,0,0.3);
   --shadow-btn-hover-success: 0 4px 12px rgba(40, 167, 69, 0.3); /* Added for generate-files-btn hover */
   --shadow-btn-hover-primary: 0 4px 10px rgba(0, 123, 255, 0.2); /* Added for primary button hover */
+  --shadow-btn-hover-purple: 0 4px 12px rgba(147, 112, 219, 0.3); /* Purple shadow for add-todo-btn hover */
 
   --status-pending-color: var(--color-secondary-accent);
   --status-completed-color: var(--color-success-accent);
   --status-in-progress-color: var(--color-warning-accent);
 
-  /* Add New Todo Button Specific Green Colors */
-  --color-add-todo-btn-start: var(--color-primary-gradient-start);
-  --color-add-todo-btn-end: var(--color-primary-gradient-end);
-  --shadow-add-todo-btn-hover: var(--shadow-btn-hover-success);
+  /* Add New Todo Button Specific Colors */
+  /* Changed to purple as per user request */
+  --color-add-todo-btn-start: #9370DB; /* MediumPurple for gradient start */
+  --color-add-todo-btn-end: #764BA2; /* From header gradient end for gradient finish */
+  --shadow-add-todo-btn-hover: var(--shadow-btn-hover-purple); /* Use purple hover shadow */
 }
 
 /* Apply theme background and default text color to body */
