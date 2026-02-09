@@ -3,13 +3,12 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* Allows browser to render native UI elements in light and dark mode */
-  color-scheme: light dark;
+  color-scheme: light; /* Allows browser to render native UI elements in light mode only */
 
   /* Global theme colors, using CSS variables defined in App.css */
   /* Fallbacks provided for initial load or if variables are not yet defined */
-  color: var(--text-primary, #495057);
-  background-color: var(--bg-app, #f8f9fa);
+  color: var(--text-primary, #495057); /* Default text color, light mode */
+  background-color: var(--bg-app, #f8f9fa); /* Default app background, light mode */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,7 +26,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   /* Use app background variable for consistency */
-  background-color: var(--bg-app, #f8f9fa);
+  background-color: var(--bg-app, #f8f9fa); /* Default app background, light mode */
 }
 
 #root {
