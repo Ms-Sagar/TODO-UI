@@ -484,7 +484,7 @@ function App() {
   const totalTodosCount = todos.length;
 
   return (
-    // NEW: Apply data-theme attribute based on the theme context
+    // NEW: Apply data-theme attribute based on the theme context for dark mode
     <div className="app" data-theme={theme}>
       <ToastContainer toasts={toasts} removeToast={removeToast} />
 
@@ -559,7 +559,7 @@ function App() {
           onClick={() => setIsModalOpen(true)}
           disabled={isAddingTodo}
           aria-label="Add new todo"
-          // IMPORTANT: Changed background color to purple as per user request
+          // CRITICAL: Changed background color to purple as per user request
           style={{ backgroundColor: 'purple' }}
         >
           <span aria-hidden="true">+</span> Add New Todo
